@@ -23,7 +23,6 @@
         }
 
         .mainbody {
-        
             margin-top: 50px;
             width: 500px;
             display: flex;
