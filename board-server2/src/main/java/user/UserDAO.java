@@ -12,6 +12,8 @@ import java.util.Iterator;
 
 import org.apache.catalina.mbeans.ClassNameMBean;
 
+import util.DBManager;
+
 // Data Access Object = 컨트롤러
 public class UserDAO {
 	private ArrayList<UserDTO> users = null;
@@ -33,34 +35,34 @@ public class UserDAO {
 	}
 
 	// getConnection
-	private Connection getConnection() {
-		try {
-			// 드라이버 연동 (jdbc mysql connector(.jar)를 WEB-INF/lib 폴더로 넣어주기
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-			// 주소/스키마이름/파라미터
-			String url = "jdbc:mysql://localhost:3306/board?serverTimezone=UTC"; // DB 주소
-			String id = "root";
-			String pw = "180517";
-
-			conn = DriverManager.getConnection(url, id, pw);
-
-			/*
-			 * if (conn != null) { System.out.println("데이터베이스 연동 성공"); }
-			 */
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			System.out.println("데이터베이스 연동 실패");
-		}
-		return conn;
-	}
+//	private Connection getConnection() {
+//		try {
+//			// 드라이버 연동 (jdbc mysql connector(.jar)를 WEB-INF/lib 폴더로 넣어주기
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//			// 주소/스키마이름/파라미터
+//			String url = "jdbc:mysql://localhost:3306/board?serverTimezone=UTC"; // DB 주소
+//			String id = "root";
+//			String pw = "180517";
+//
+//			conn = DriverManager.getConnection(url, id, pw);
+//
+//			/*
+//			 * if (conn != null) { System.out.println("데이터베이스 연동 성공"); }
+//			 */
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			System.out.println("데이터베이스 연동 실패");
+//		}
+//		return conn;
+//	}
 
 	// getUser()
 	public ArrayList<UserDTO> getUser() {
 
 		try {
-			conn = getConnection();
+			conn = DBManager.getConnection();
 
 			String str = "select * from users";
 			pstmt = conn.prepareStatement(str);
@@ -89,7 +91,7 @@ public class UserDAO {
 			try {
 				UserDTO newUser = new UserDTO(user.getId(), user.getPw(),
 						new Timestamp(Calendar.getInstance().getTimeInMillis()));
-				conn = getConnection();
+				conn = DBManager.getConnection();
 
 				String str = "insert into users values(?,?,?)";
 				pstmt = conn.prepareStatement(str);
@@ -133,7 +135,7 @@ public class UserDAO {
 		if (idx != -1) {
 			try {
 
-				conn = getConnection();
+				conn = DBManager.getConnection();
 				String sql = "delete from users where id=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, id);
