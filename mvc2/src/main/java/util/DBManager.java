@@ -13,7 +13,7 @@ public class DBManager {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// 주소/스키마이름/파라미터
-			String url = "jdbc:mysql://localhost:3306/board?serverTimezone=UTC"; // DB 주소
+			String url = "jdbc:mysql://localhost:3306/myshopping?serverTimezone=UTC"; // DB 주소
 			String id = "root";
 			String pw = "180517";
 

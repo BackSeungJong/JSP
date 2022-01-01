@@ -2,7 +2,6 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>mvc2</display-name>
   <welcome-file-list>
- 	 
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
@@ -15,7 +14,7 @@
   	<url-pattern>/TestServlet</url-pattern>
   </servlet-mapping>
   
-  <!-- jspPro 이동 -->
+  <!-- jspPro 이동 
   <servlet>
   	<servlet-name>login</servlet-name>
   	<servlet-class>controller.LoginPro</servlet-class>
@@ -24,7 +23,7 @@
   	<servlet-name>login</servlet-name>
   	<url-pattern>/LoginPro</url-pattern>
   </servlet-mapping>
-  
+  -->
   <!-- jsp이동 -->
   <servlet>
   	<servlet-name>main</servlet-name>
@@ -34,6 +33,7 @@
   	<servlet-name>main</servlet-name>
   	<url-pattern>/main</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   	<servlet-name>joinForm</servlet-name>
   	<jsp-file>/views/join.jsp</jsp-file>
@@ -42,6 +42,7 @@
   	<servlet-name>joinForm</servlet-name>
   	<url-pattern>/joinForm</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   	<servlet-name>loginForm</servlet-name>
   	<jsp-file>/views/login.jsp</jsp-file>

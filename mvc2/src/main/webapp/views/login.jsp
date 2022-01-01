@@ -9,7 +9,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="LoginPro">
+    <form method="get" action="service">
+    	<input type="hidden" name="command" value="login">
         아이디 : <input type="text" name="id">
         비밀번호 : <input type="password" name="pw">
         <input type="submit" value="로그인">
@@ -17,24 +18,26 @@
     
     <%
     request.setCharacterEncoding("utf-8");
-	Object obj = request.getSession().getAttribute("err");
+	Object errmsg = request.getAttribute("errmsg");
+	Object msg = request.getAttribute("errmsg");
 	
-	if(obj != null && obj.equals("errMsg")){
-		 System.out.println("서블릿에서 빠꾸먹고옴 - objnull아님");
-		/*System.out.println(obj);
+	if(errmsg != null && errmsg.equals("existName")){
+		/* System.out.println("서블릿에서 빠꾸먹고옴 - objnull아님");
+		System.out.println(obj);
 		System.out.println(obj.getClass().getSimpleName());
 		System.out.println(obj.toString());
 		System.out.println(obj.toString().getClass().getSimpleName());*/
 	 %>
 	 <script>
-	 		alert("로그인정보를 확인해주세요");
+	 		alert("존재하는 이름입니다. 확인해주세요");
 	 </script>
 	 <%
-	 
-	}
-	
-	else{
-		System.out.println("로그인jsp에 들어옴 지금 obj는 null임");
+	} else if(msg != null && msg.equals("success")){
+		%>
+		 <script>
+	 		alert("가입에 성공했습니다.");
+	 </script>
+		<%
 	}
 	
 	%>
