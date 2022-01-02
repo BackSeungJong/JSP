@@ -38,7 +38,7 @@ public class Service extends HttpServlet {
 		
 		// request parameter "command" 안에 있는 명령을 확인한 후 -> 명령에 맞는 Action instance를 생성
 		String command = request.getParameter("command");
-		//System.out.println(command);
+		System.out.println(command);
 		ActionFactory af = ActionFactory.getInstance();
 		Action action = af.getAction(command); // af 가 인스턴스화 해줌
 		

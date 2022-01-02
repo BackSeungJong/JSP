@@ -14,27 +14,28 @@
     <title>Document</title>
 </head>
 <body>
+
+	<%
+	// 여기 joinAction으로부터 올 msg_join = "blank" 에 대한 처리 들어갈 부분
+	%>
 	
     <h1>회원가입</h1>
     <form id="joinForm" method="post" action="service" >
         <input type="hidden" name="command" value="join">
         이름: <input type="text" name="name"><br><br>
-        생년월일: <input type="text" name="birthdate" placeholder="ex) 19959523"><br><br>
-        성별: <select name="gender">
-            <option value="1" selected>남자</option>
-            <option value="2">여자</option>
-        </select><br><br>
-        주소: <input type="text" name="address"><br><br>
-        휴대폰번호: <input type="text" name="PN"placeholder="ex) 01072774929">
-
-
-        <br><br><br><br>
         아이디: <input type="text" name="id" id="id">
         <input type="hidden" name="command" value="false" id="checkID">
         <input onclick="check()" type="button" value="중복확인">
         <br><br>
         비밀번호: <input type="password" name="pw"><br><br>
         비밀번호확인: <input type="password" name="pw2"><br><br>
+        성별: <select name="gender">
+            <option value="1" selected>남자</option>
+            <option value="2">여자</option>
+        </select><br><br>
+        휴대폰번호: <input type="text" name="PN"placeholder="ex) 01072774929"><br><br>
+        이메일: <input type="text" name="email"><br><br>
+        주소: <input type="text" name="address"><br><br>
   	 	<input onclick="cancel()" type="button" value="취소">
    		<input onclick="totalcheck()" type="button" value="회원가입">
     </form>
@@ -61,7 +62,6 @@
 					  check= true;
 				  }
 			  }
-			  
 			  if(check){
 				  alert("중복된 아이디입니다.");
 				  document.getElementById('checkID').value="false";

@@ -5,6 +5,12 @@ import controller.action.JoinAction;
 import controller.action.JoinFormAction;
 import controller.action.LoginAction;
 import controller.action.LoginFormAction;
+import controller.action.LogoutAction;
+import controller.action.MypageFormAction;
+import controller.update.UpdateAddressAction;
+import controller.update.UpdateEmailAction;
+import controller.update.UpdatePNAction;
+import controller.update.UpdatePwAction;
 
 // Factory Methd(생성 디자인 패턴)
 
@@ -29,10 +35,25 @@ public class ActionFactory {
 			action = new LoginAction();
 		} else if (command.equals("loginForm")) {
 			action = new LoginFormAction();
+		} else if (command.equals("logoutAction")) {
+			action = new LogoutAction();
 		} else if (command.equals("join")) {
 			action = new JoinAction();
 		} else if (command.equals("joinForm")) {
 			action = new JoinFormAction();
+		} else if (command.equals("mypageForm")) {
+			action = new MypageFormAction();
+		}
+
+		// mypage update service
+		else if (command.equals("updatePw")) {
+			action = new UpdatePwAction();
+		} else if (command.equals("updatePN")) {
+			action = new UpdatePNAction();
+		} else if (command.equals("updateEmail")) {
+			action = new UpdateEmailAction();
+		} else if (command.equals("updateAddress")) {
+			action = new UpdateAddressAction();
 		}
 
 		return action;

@@ -5,14 +5,14 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
+  <!-- <servlet>
   	<servlet-name>test</servlet-name>
   	<servlet-class>controller.TestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>test</servlet-name>
   	<url-pattern>/TestServlet</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   
   <!-- jspPro 이동 
   <servlet>
@@ -25,7 +25,7 @@
   </servlet-mapping>
   -->
   <!-- jsp이동 -->
-  <servlet>
+ <servlet>
   	<servlet-name>main</servlet-name>
   	<jsp-file>/views/main.jsp</jsp-file>
   </servlet>
@@ -52,6 +52,13 @@
   	<url-pattern>/loginForm</url-pattern>
   </servlet-mapping>
   
-  
+  <servlet>
+  	<servlet-name>mypageForm</servlet-name>
+  	<jsp-file>/views/mypage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>mypageForm</servlet-name>
+  	<url-pattern>/mypageForm</url-pattern>
+  </servlet-mapping>
   
 </web-app>

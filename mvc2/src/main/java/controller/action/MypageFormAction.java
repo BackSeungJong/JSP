@@ -6,13 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LogoutAction implements Action{
+public class MypageFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//로그아웃
-		request.getSession().setAttribute("LOG", null);
-		response.sendRedirect("index.jsp");
+		String url = "mypageForm";
+		request.getRequestDispatcher(url).forward(request, response);
 	}
+
 }

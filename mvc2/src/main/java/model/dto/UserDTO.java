@@ -3,140 +3,90 @@ package model.dto;
 import java.sql.Timestamp;
 
 public class UserDTO {
-	private int no;
 	private String name;
-	private String birthdate;
-	private int gender;
-	private String address;
-	private String PN;
-	
-	private String id;
+	private String id; // pk
 	private String pw;
-	private Timestamp joinDate;
+	private int gender;
+	private String PN;
+	private String address;
+	private String email;
+	private Timestamp joindate;
 	
-	private int height;
-	private int weight;
+	
+	// 회원가입
+	public UserDTO(String name, String id, String pw, int gender, String PN, String email, String address) {
+		this.name = name;
+		this.id = id;
+		this.pw = pw;
+		this.gender = gender;
+		this.PN = PN;
+		this.email = email;
+		this.address = address;
+	}
+	
+	// DB에 넣을 때
+	public UserDTO(String name, String id, String pw, int gender, String PN, String email, String address, Timestamp joindate) {
+		this.name = name;
+		this.id = id;
+		this.pw = pw;
+		this.gender = gender;
+		this.PN = PN;
+		this.email = email;
+		this.address = address;
+		this.joindate = joindate;
+	}
 
-	// 회원 가입 할때
-		public UserDTO(String name, String birthdate, int gender, String address, String PN, String id, String pw) {
-			this.name = name;
-			this.birthdate = birthdate;
-			this.gender = gender;
-			this.address = address;
-			this.PN = PN;
-			this.id = id;
-			this.pw = pw;
-		}
-		
-		// 회원 가입 최종
-		public UserDTO(String name, String birthdate, int gender, String address, String PN, String id, String pw,
-				Timestamp joinDate) {
-			this.name = name;
-			this.birthdate = birthdate;
-			this.gender = gender;
-			this.address = address;
-			this.PN = PN;
-			this.id = id;
-			this.pw = pw;
-			this.joinDate = joinDate;
-		}
+	public String getName() {
+		return name;
+	}
 
-		// db로 부터 정보를 받아왔을 때
-		// 몸무게, 키 O
-		public UserDTO(int no, String name, String birthdate, int gender, String address, String PN, String id, String pw,
-				Timestamp joinDate, int height, int weight) {
-			this.no = no;
-			this.name = name;
-			this.birthdate = birthdate;
-			this.gender = gender;
-			this.address = address;
-			this.PN = PN;
-			this.id = id;
-			this.pw = pw;
-			this.joinDate = joinDate;
-			this.height = height;
-			this.weight = weight;
-		}
 
-		// 몸무게, 키 X
-		public UserDTO(int no, String name, String birthdate, int gender, String address, String PN, String id, String pw,
-				Timestamp joinDate) {
-			this.no = no;
-			this.name = name;
-			this.birthdate = birthdate;
-			this.gender = gender;
-			this.address = address;
-			this.PN = PN;
-			this.id = id;
-			this.pw = pw;
-			this.joinDate = joinDate;
-		}
-		
-		public int getNo() {
-			return no;
-		}
+	public String getId() {
+		return id;
+	}
 
-		public String getName() {
-			return name;
-		}
+	public String getPw() {
+		return pw;
+	}
 
-		public String getBirthdate() {
-			return birthdate;
-		}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
 
-		public int getGender() {
-			return gender;
-		}
+	public int getGender() {
+		return gender;
+	}
 
-		public String getAddress() {
-			return address;
-		}
 
-		public void setAddress(String address) {
-			this.address = address;
-		}
+	public String getPN() {
+		return PN;
+	}
 
-		public String getPN() {
-			return PN;
-		}
+	public void setPN(String pN) {
+		PN = pN;
+	}
 
-		public void setPN(String pN) {
-			PN = pN;
-		}
+	public String getEmail() {
+		return email;
+	}
 
-		public String getId() {
-			return id;
-		}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-		public String getPw() {
-			return pw;
-		}
+	public String getAddress() {
+		return address;
+	}
 
-		public void setPw(String pw) {
-			this.pw = pw;
-		}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-		public Timestamp getJoinDate() {
-			return joinDate;
-		}
+	public Timestamp getJoindate() {
+		return joindate;
+	}
 
-		public void setJoinDate(Timestamp joinDate) {
-			this.joinDate = joinDate;
-		}
-
-		public int getHeight() {
-			return height;
-		}
-
-		public void setHeight(int height) {
-			this.height = height;
-		}
-
-		public int getWeight() {
-			return weight;
-		}
-
-		public void setWeight(int weight) {
-			this.weight = weight;
-		}
+	public void setJoindate(Timestamp joindate) {
+		this.joindate = joindate;
+	}
 }

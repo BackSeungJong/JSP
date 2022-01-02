@@ -1,4 +1,4 @@
-package controller.action;
+package controller.update;
 
 import java.io.IOException;
 
@@ -6,10 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.action.Action;
 import model.dao.UserDAO;
+import model.dto.UserDTO;
 
-// 데이터를 처리하는 곳
-public class LoginAction implements Action{
+public class UpdatePwAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,19 +18,24 @@ public class LoginAction implements Action{
 		UserDAO dao = UserDAO.getInstance();
 		
 		// 값 받아오기
-		String id = request.getParameter("id");
+		String id = request.getSession().getAttribute("LOG").toString();
+		UserDTO user = dao.findId(id);
+		
+		String present_pw = request.getParameter("present_pw");
 		String pw = request.getParameter("pw");
-
-		if (dao.findId(id, pw) != null) {
-			// 디스패처로 보내버리기
-			// 로그인 성공
-			String url = "main";
-			request.getSession().setAttribute("LOG", id);
+		String pw2 = request.getParameter("pw2");
+		
+		if(user.getPw().equals(present_pw) && pw.equals(pw2)) {
+			request.setAttribute("msg_update", "success");
+			
+			user.setPw(pw);
+			dao.update(id);
+			
+			String url="mypageForm";
 			request.getRequestDispatcher(url).forward(request, response);
 		}else {
-			// 로그인 실패
-			String url = "loginForm";
-			request.setAttribute("msg_login", "fail_login");
+			request.setAttribute("msg_update", "fail");
+			String url="mypageForm";
 			request.getRequestDispatcher(url).forward(request, response);
 		}
 	}
