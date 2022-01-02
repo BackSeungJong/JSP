@@ -27,6 +27,7 @@
     	<input type="hidden" name="command" value="mypageForm">
         <input type="submit" value="마이페이지">
     </form>
+    
     <script>
     	console.log('[log] <%=log%>');
     </script>
