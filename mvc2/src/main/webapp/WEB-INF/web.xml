@@ -61,4 +61,22 @@
   	<url-pattern>/mypageForm</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>detailForm</servlet-name>
+  	<jsp-file>/views/detail.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>detailForm</servlet-name>
+  	<url-pattern>/detailForm</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>cartForm</servlet-name>
+  	<jsp-file>/views/cart.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cartForm</servlet-name>
+  	<url-pattern>/cartForm</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

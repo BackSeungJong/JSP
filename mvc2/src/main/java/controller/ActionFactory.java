@@ -1,12 +1,15 @@
 package controller;
 
 import controller.action.Action;
+import controller.action.DetailFormAction;
 import controller.action.JoinAction;
 import controller.action.JoinFormAction;
 import controller.action.LoginAction;
 import controller.action.LoginFormAction;
 import controller.action.LogoutAction;
 import controller.action.MypageFormAction;
+import controller.cartaction.CartAction;
+import controller.cartaction.CartFormAction;
 import controller.update.UpdateAddressAction;
 import controller.update.UpdateEmailAction;
 import controller.update.UpdatePNAction;
@@ -56,6 +59,18 @@ public class ActionFactory {
 			action = new UpdateAddressAction();
 		}
 
+		// 상세보기
+		else if (command.equals("detailForm")) {
+			action = new DetailFormAction();
+		}
+		
+		// 장바구니
+		else if (command.equals("cart")) {
+			action = new CartAction();
+		} else if (command.equals("cartForm")) {
+			action = new CartFormAction();
+		} 
+		
 		return action;
 	}
 }
